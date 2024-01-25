@@ -29,6 +29,7 @@ modules:
     parameters:
       app-name: BusinessPartnerValidation-db
       memory: 128MB
+      buildpack: nodejs_buildpack
   - name: BusinessPartnerValidation-launchpad
     type: com.sap.application.content
     requires:
@@ -91,27 +92,26 @@ modules:
       commands:
         - npm install
         - npm run build
-      supported-platforms: []
+      supported-platforms:
+        []
+      # - name: BusinessPartnerValidation-ui
+      #   type: html5
+      #  path: app/BusinessPartners
+      #  parameters:
+      #    disk-quota: 1024MB
+      #    memory: 128MB
+      #  build-parameters:
+      #    builder: npm
+      #    supported-platforms: []
+      #    build-result: dist
 
- 
- # - name: BusinessPartnerValidation-ui
- #   type: html5
-  #  path: app/BusinessPartners
-  #  parameters:
-  #    disk-quota: 1024MB
-  #    memory: 128MB
-  #  build-parameters:
-  #    builder: npm
-  #    supported-platforms: []
-  #    build-result: dist
-
- #   requires:
- #    - name: BusinessPartnerValidation-dest # <-- Destination Service
- #     - name: BusinessPartnerValidation-xsuaa # <-- User Authentication and Authorization
-  #    - name: srv_api
-   #     group: destinations
-    #    properties:
-     #    name: srv_api
+      #   requires:
+      #    - name: BusinessPartnerValidation-dest # <-- Destination Service
+      #     - name: BusinessPartnerValidation-xsuaa # <-- User Authentication and Authorization
+      #    - name: srv_api
+      #     group: destinations
+      #    properties:
+      #    name: srv_api
       #    url: "~{srv-url}"
 
 
